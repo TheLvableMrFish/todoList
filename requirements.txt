@@ -1,0 +1,13 @@
+_ Store todo items (thinking Excel)
+_ Remove todo items
+_ Add a GUI
+
+potential extras
+() Create a spreadsheet (printable? downloadable?)
+() task categorization
+() due dates & deadlines
+() Add priority
+() search & filter
+() notes & descriptions
+() progresssion / precentage
+() themes
