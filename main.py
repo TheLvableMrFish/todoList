@@ -1,38 +1,25 @@
-# import os
+import tkinter as tk
 
-from datetime import datetime
-
-from store import write_to_excel
 from getList import getTodoList
+from taskFunctions import addTask
 
-# if os.path.exists("tasks.xlsx"):
-    
 todoList = getTodoList()
 
-# todoList = [
-#     ["task 1", "complete", "yesterday", "today"],
-#     ["task 2", "complete", "yesterday", "today"],
-#     ["task 3", "complete", "yesterday", "today"],
-#     ["task 4", "complete", "yesterday", "today"],
-# ]
+# Create the main window
+root = tk.Tk()
+root.title("Todo List")
 
-def addTask(task):
-    
-    todoList.append(
-        [
-            task,
-            "incomplete",
-            f"{datetime.now()}",
-            "N/A"
-        ]
-    )
+# Create an entry widget for the task input
+entry = tk.Entry(root, width=30)
+entry.pack(padx=10, pady=10)
 
-    write_to_excel(todoList)
+# Create a button widget to enter task input
+add_task_btn = tk.Button(root, text="Add", command=lambda: addTask(entry.get(), todoList))
+add_task_btn.pack(padx=10, pady=20)
 
-addTask("Clean")
+# Create the frame to hold the lists
+frame = tk.Frame(root)
+frame.pack(padx=180, pady=40)
 
-def deleteTask(taskIndex):
-    del todoList[taskIndex]
-
-# write_to_excel(todoList)
-# print('works')
+# Start the Tkinter event loop
+root.mainloop()
