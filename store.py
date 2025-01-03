@@ -18,9 +18,3 @@ def write_to_excel(tasks):
     wb.save("tasks.xlsx")
 
 
-todoList = [
-    ["task 1", "complete", "yesterday", "today"],
-    ["task 2", "complete", "yesterday", "today"],
-    ["task 3", "complete", "yesterday", "today"],
-    ["task 4", "complete", "yesterday", "today"],
-]
