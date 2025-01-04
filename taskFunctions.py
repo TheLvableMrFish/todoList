@@ -4,16 +4,17 @@ from store import write_to_excel
 
 def addTask(task, todoList):
     
-    todoList.append(
-        [
-            task,
-            "incomplete",
-            f"{datetime.now()}",
-            "N/A"
-        ]
-    )
+    if(task != ""):
+        todoList.append(
+            [
+                task,
+                "incomplete",
+                f"{datetime.now()}",
+                "N/A"
+            ]
+        )
 
-    write_to_excel(todoList)
+        write_to_excel(todoList)
 
 def deleteTask(taskIndex, todoList):
     del todoList[taskIndex]

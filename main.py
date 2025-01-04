@@ -1,25 +1,31 @@
 import tkinter as tk
 
+# pip install ttkbootstrap
+import ttkbootstrap as ttk
+
 from getList import getTodoList
 from taskFunctions import addTask
 
 todoList = getTodoList()
 
 # Create the main window
-root = tk.Tk()
-root.title("Todo List")
+window = ttk.Window()
+window.title('Todo List')
+window.geometry('300x100')
 
 # Create an entry widget for the task input
-entry = tk.Entry(root, width=30)
-entry.pack(padx=10, pady=10)
+input_frame = ttk.Frame(master = window)
+entry_str = tk.StringVar()
+entry = ttk.Entry(master= input_frame, textvariable=entry_str)
+
 
 # Create a button widget to enter task input
-add_task_btn = tk.Button(root, text="Add", command=lambda: addTask(entry.get(), todoList))
-add_task_btn.pack(padx=10, pady=20)
+add_task_btn = ttk.Button(master = input_frame, text='Add', command=lambda: addTask(entry_str.get(), todoList))
 
-# Create the frame to hold the lists
-frame = tk.Frame(root)
-frame.pack(padx=180, pady=40)
+# Attach entry, btn, and frame to the window
+entry.pack(side='left', padx=(0,10))
+add_task_btn.pack(side='right')
+input_frame.pack(pady=10)
 
 # Start the Tkinter event loop
-root.mainloop()
+window.mainloop()
