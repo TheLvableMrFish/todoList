@@ -6,10 +6,23 @@ import ttkbootstrap as ttk
 from getList import getTodoList
 from taskFunctions import addTask
 
-todoList = getTodoList()
-
 def del_task(index):
     print(index)
+
+def generateList(todoList, task_grid):
+    
+    for i, item in enumerate(todoList):
+
+    # Create a label for each task
+        task_label = ttk.Label(master=task_grid, text=f"{item[0]}")
+        task_label.grid(row=i, column=0)
+
+        task_btn = ttk.Button(master=task_grid, text="X", command=lambda i=i: del_task(i))
+        task_btn.grid(row=i, column=2)
+
+    task_grid.pack()
+
+todoList = getTodoList()
 
 # Create the main window
 window = ttk.Window()
@@ -32,17 +45,19 @@ input_frame.pack(pady=10)
 
 task_grid = ttk.Frame(master=window)
 
-# Generate list
-for i, item in enumerate(todoList):
+# # Generate list
+# for i, item in enumerate(todoList):
 
-    # Create a label for each task
-    task_label = ttk.Label(master=task_grid, text=f"{item[0]}")
-    task_label.grid(row=i, column=0)
+#     # Create a label for each task
+#     task_label = ttk.Label(master=task_grid, text=f"{item[0]}")
+#     task_label.grid(row=i, column=0)
 
-    task_btn = ttk.Button(master=task_grid, command=lambda i=i: del_task(i))
-    task_btn.grid(row=i, column=1)
+#     task_btn = ttk.Button(master=task_grid, text="X", command=lambda i=i: del_task(i))
+#     task_btn.grid(row=i, column=2)
 
-task_grid.pack()
+# task_grid.pack()
+
+generateList(todoList, task_grid)
 
 # Start the Tkinter event loop
 window.mainloop()
