@@ -23,6 +23,7 @@ def addTask(task, todoList):
 
 def deleteTask(taskIndex, todoList):
     del todoList[taskIndex]
+    write_to_excel(todoList)
 
 
 
