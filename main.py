@@ -18,7 +18,7 @@ def del_task(index, todoList):
     generateList(todoList, task_grid)
 
 def add_new_task(entry_str, todoList):
-    addTask(entry_str, todoList)
+    addTask(entry_str, todoList) 
 
     generateList(todoList, task_grid)
 
