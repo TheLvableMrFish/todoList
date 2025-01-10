@@ -7,6 +7,7 @@ import tkinter as tk
 # pip install ttkbootstrap
 import ttkbootstrap as ttk
 
+# Adds a task todoList and then writes it all to excel
 def addTask(task, todoList):
     
     if(task != ""):
@@ -24,17 +25,3 @@ def addTask(task, todoList):
 def deleteTask(taskIndex, todoList):
     del todoList[taskIndex]
     write_to_excel(todoList)
-
-
-
-# todoList = [
-#     ["task 1", "complete", "yesterday", "today"],
-#     ["task 2", "complete", "yesterday", "today"],
-#     ["task 3", "complete", "yesterday", "today"],
-#     ["task 4", "complete", "yesterday", "today"],
-# ]
-
-
-
-# write_to_excel(todoList)
-# print('works')
