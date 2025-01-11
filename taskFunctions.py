@@ -2,11 +2,6 @@ from datetime import datetime
 
 from store import write_to_excel
 
-import tkinter as tk
-
-# pip install ttkbootstrap
-import ttkbootstrap as ttk
-
 # Adds a task todoList and then writes it all to excel
 def addTask(task, todoList):
     
